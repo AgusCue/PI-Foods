@@ -3,18 +3,11 @@ const router = Router();
 const { Diet, Recipe } = require("../db.js");
 
 router.post("/", async (req, res) => {
+  const { title, summary, steps, image, healthScore, spoonacularScore, diets } =
+    req.body;
   try {
-    const {
-      title,
-      summary,
-      steps,
-      image,
-      healthScore,
-      spoonacularScore,
-      diets,
-    } = req.body;
     console.log(diets);
-    const recipeCreated = await Recipe.create({
+    let recipeCreated = await Recipe.create({
       title,
       summary,
       steps,
@@ -22,15 +15,16 @@ router.post("/", async (req, res) => {
       healthScore,
       spoonacularScore,
     });
-
+    console.log(recipeCreated);
     diets.forEach(async (e) => {
       let dietDb = await Diet.findAll({
         where: { title: e },
       });
+      console.log(dietDb);
       await recipeCreated.addDiet(dietDb);
     });
 
-    res.status(201).send("se agrego la recipe");
+    res.send("fue creado");
   } catch (error) {
     console.log(error);
     res.status(404).send({ error: "error" });

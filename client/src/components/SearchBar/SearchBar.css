@@ -1,0 +1,59 @@
+
+.searchBar{
+    position: absolute;
+    left: 50px;
+    top: 10%
+}
+
+.searchBar{
+    display: flex;
+    margin-top: -50px;
+    border-radius: 30px;
+    border: 2px solid black;
+}
+
+.buscar{
+    background-color: transparent;
+    color: black;
+    text-decoration: none;
+    font-weight: bold ;
+    font-size: 25px;
+    border: none;
+    width: 400px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    top: 25%;
+    position: relative;
+    outline:none;
+    padding: 20px;
+}
+
+.boton2{
+    background-color: transparent;
+    border: 0px;
+    cursor: pointer;
+
+}
+
+.boton2 img{
+    width: 50px;
+    height: 50px;
+    outline: none;
+    border: none;
+}
+
+.filtros1{
+    width: auto;
+    height: 30px;
+}
+
+.filtros2{
+    width: auto;
+    height: 30px;
+}
+
+.filtros3{
+    width: auto;
+    height: 30px;
+}

@@ -4,10 +4,20 @@ const router = Router();
 const { Diet, Recipe } = require("../db.js");
 
 const { API_KEY } = process.env;
+const { API_KEY2 } = process.env;
+const { API_KEY3 } = process.env;
+const { API_KEY4 } = process.env;
+const { API_KEY5 } = process.env;
+const { API_KEY7 } = process.env;
+const { API_KEY8 } = process.env;
+const { API_KEY9 } = process.env;
+const { API_KEY10 } = process.env;
+const { API_KEY11 } = process.env;
+const { API_KEY12 } = process.env;
 
 const getApiInfo = async () => {
   const apiKey = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=30`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY12}&addRecipeInformation=true&number=10`
   );
   const apiInfo = await apiKey.data.results.map((e) => {
     return {
@@ -26,7 +36,7 @@ const getApiInfo = async () => {
 };
 
 const getDbInfo = async () => {
-  return await Recipe.findAll({
+  let dbRecipes = await Recipe.findAll({
     include: {
       model: Diet,
       attributes: ["title"],
@@ -34,6 +44,20 @@ const getDbInfo = async () => {
         attributes: [],
       },
     },
+  });
+
+  return dbRecipes.map((e) => {
+    return {
+      title: e.title,
+      id: e.id,
+      summary: e.summary,
+      steps: e.steps,
+      spoonacularScore: e.spoonacularScore,
+      healthScore: e.healthScore,
+      diets: e.diets.map((e) => e.title),
+      image: e.image,
+      createdInDb: e.createdInDb,
+    };
   });
 };
 
@@ -45,20 +69,21 @@ const getAllRecipe = async () => {
 };
 
 router.get("/", async (req, res) => {
-  const title = req.query.title;
+  const name = req.query.name;
   try {
     let recipeTotal = await getAllRecipe();
-    if (title) {
-      let recipeTitle = await recipeTotal.filter((t) =>
-        t.title.toLowerCase().include(title.toLocaleLowerCase())
+    if (name) {
+      let recipeName = await recipeTotal.filter((t) =>
+        t.title.toLowerCase().includes(name.toLowerCase())
       );
-      recipeTitle.length
-        ? res.status(200).send(recipeTitle)
+      recipeName.length
+        ? res.status(200).send(recipeName)
         : res.status(404).send("there isnt any recipe");
     } else {
       res.status(200).send(recipeTotal);
     }
   } catch (error) {
+    console.log(error);
     res.status(400).send("Error in catch");
   }
 });

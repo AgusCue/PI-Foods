@@ -1,10 +1,14 @@
 import React from "react";
 import {useState, useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
-import {getRecipe, filterRecipeByDiets} from '../../actions'; 
+import SearchBar from "../SearchBar/SearchBar";
+import {getRecipe} from '../../actions'; 
 import {Link} from 'react-router-dom';
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
+import Filtrado from "../Filtrado/Filtrado";
+import Loading from "../Loading/Loading";
+
 
 import './Home.css'
 
@@ -13,8 +17,7 @@ import './Home.css'
 export default function Home(){
   const dispatch = useDispatch()
   const allRecipes = useSelector(state=>state.recipes)
-  // const [/*orden*/, setOrden] = useState("");
-  //------------------Paginado--------------------//
+  const [/*orden*/,setOrden]= useState('')
 
   const [currentPage,setCurrentPage]= useState(1)
   const [recipesPerPage,] = useState (9)
@@ -36,59 +39,45 @@ export default function Home(){
     dispatch(getRecipe());
   }
 
-  function handleFilterDiets(e){
-    e.preventDefault()
-    dispatch(filterRecipeByDiets(e.target.value))
-  }
-
   return(
-    <div className="fondo">
-      <h1>Prepare your favorite dish</h1>
-      <Link to='/recipe'>Created recipe</Link>
-      <button onClick={e=>{handleClick(e)}}>Refresh</button>
-      <div>
-        <select>
-          <option value ='asc'>A-Z</option>
-          <option value = 'des'>Z-A</option>
-        </select>
-        <select onChange={e=>handleFilterDiets(e)}>
-          <option value= 'all'>ALL DIETS</option>
-          <option value= "dairyFree">DAIRY FREE</option>
-          <option value= "glutenFree">GLUTEN FREE</option>
-          <option value= "lowFodmap">LOW FOD MAP</option>
-          <option value= "ketogenic">KETOGENIC</option>
-          <option value= "paleolithic">PALEOLITHIC</option>
-          <option value= "pescatarian">PESCATARIAN</option>
-          <option value= "primal">PRIMAL</option>
-          <option value= "vegan">VEGAN</option>
-          <option value= 'vegetarian'>VEGETARIAN</option>
-          <option value= "whole 30">WHOLE 30</option>
-          <option value= "lacto ovo vegetarian">LACTO OVO VEGETARIAN</option>
-        </select>
-        <select>
-          <option value= 'all'>ALL</option>
-          <option value= 'creado'>CREATED</option>
-          <option value= 'exist'>EXIST</option>
-        </select>
-        
-
-        <Paginado
-          recipesPerPage={recipesPerPage}
-          allRecipes={allRecipes.length}
-          paginado = {paginado}
-        />
-        <div className="row">
+    <div>
+      {allRecipes.length > 0 ?(
+     <div className="background">
+      <div className="left">
+        <Filtrado setCurrentPage={setCurrentPage} setOrden={setOrden} />
+        <SearchBar  />
+      </div>
+      <div className="rigth">
+        <div className="crear">
+          {/* <h4><strong> Prepare your favorite dish</strong></h4> */}
+          <button onClick={e=>{handleClick(e)}} className='btn'>Refresh</button>
+          <Paginado
+            recipesPerPage={recipesPerPage}
+            allRecipes={allRecipes.length}
+            paginado = {paginado}
+              />
+          <div className="agus">
+            <Link className="link" to='/recipe' style= {{textDecoration:"none"}}><strong>Created recipe</strong></Link>
+          </div>
+        </div>
+        <div className="cards">
         {
           currentRecipe?.map(e=>{
             return(
               <Link to={'/home/'+ e.id} style= {{textDecoration:"none"}} >
-              <Card key={e.id} title={e.title} summary={e.summary} image={e.image}/>
+                <Card key={e.id} id ={e.id} title={e.title} diets={e.diets.join(', ')} image={e.image}/>
               </Link>
             )
           })
         }
         </div>
+
       </div>
+      </div>
+      ):(
+        <Loading/>
+      )
+      }
     </div>
        
     )

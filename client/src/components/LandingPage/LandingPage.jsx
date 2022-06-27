@@ -2,12 +2,12 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 import '../LandingPage/LandingPage.css';
-import video from "../../video.mp4";
+// import video from "../../video.mp4";
 
 export default function LandigPage() {
   return (
     <div className="fondo">
-      <video
+      {/* <video
           autoPlay
           loop
           muted
@@ -23,7 +23,7 @@ export default function LandigPage() {
           }}
         >
           <source src={video} type="video/mp4" />
-        </video>
+        </video> */}
       <h1 className="titul">Welcome to The Delicious Recipes</h1>
       <Link to="/home" >
         <button className="boton"><strong>Explore</strong></button>

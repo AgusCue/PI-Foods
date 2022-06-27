@@ -2,16 +2,12 @@ import React from "react";
 
 import '../Card/Card.css'
 
-export default function card({title,image,summary}){
+export default function card({title,image,diets}){
   return(
     <div className="card">
-        <h3>{title}</h3>
-      <div className="detalle">
-        <h5>{summary}</h5>
-      </div>
-      <div className= 'imagen' >
-        <img src={image} alt="img" width='200px' height='200px'/>
-      </div>
+        <h2>{title}</h2>
+        <h3>{diets.toUpperCase()}</h3>
+        <img className= 'imagen' src={image} alt="img" />
     </div>
   )
 }
