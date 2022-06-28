@@ -57,7 +57,22 @@ export function getNameRecipe(name) {
 
 export function postRecipe(payload) {
   return async function (dispatch) {
-    let json2 = await axios.post("http://localhost:3001/recipe", payload);
+    let json2 = await axios.post("http://localhost:3001/recipes", payload);
     return json2;
+  };
+}
+
+export function getDetail(id) {
+  return async function (dispatch) {
+    try {
+      let json = await axios.get(`http://localhost:3001/recipe/${id}`);
+      console.log(json);
+      return dispatch({
+        type: "GET_DETAILS",
+        payload: json.data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 }

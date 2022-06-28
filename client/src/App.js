@@ -3,6 +3,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage.jsx";
 import Home from "./components/Home/Home.jsx";
 import RecipeCreated from "./components/RecipeCreated/RecipeCreated.jsx";
+import Detail from "./components/Details/Details";
 
 function App() {
   return (
@@ -14,6 +15,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/recipe/:id">
+            <Detail />
           </Route>
           <Route path="/recipe">
             <RecipeCreated />

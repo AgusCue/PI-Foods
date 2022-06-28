@@ -1,0 +1,26 @@
+.colum{
+    display: flex;
+    flex-direction: column;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.creardietas{
+    border: 1px solid black;
+    display: flex;
+    height: 300px;
+    width: max-content;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.check{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 15px;
+}

@@ -1,0 +1,61 @@
+#alldatail{
+    background-image: url('../../imagen/fondocard.jpg');
+    margin: 0;
+    padding: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: absolute;
+    width:  100% ;
+    height: 100%;
+    background-position: center;
+}
+
+.home1{
+    display: flex;
+    width: 50px;
+    height: 50px;
+}
+
+#todosDetail{
+    margin-top: -10px;
+    width: 1000px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 23%;
+}
+
+#detail{
+    height: auto;
+    font-size: 30px;
+    text-decoration: underline;
+    font-size: 32px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+#portada{
+    width: 1000px;
+    display: flex;
+    justify-content: space-between;
+    margin-right: 100px;
+}
+
+#portada img{
+    margin-left: 100px;
+    border-radius: 10px;
+}
+
+#portada-uno{
+    margin-top: 50px;
+    text-align: left;
+    font-size: 18px;
+}
+
+#listaId{
+    display: flex;
+    flex-direction: column;
+}
+
+#listaId li{
+    list-style: none;
+    text-align: left;
+}

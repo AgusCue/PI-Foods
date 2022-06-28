@@ -49,7 +49,7 @@ export default function Home(){
       </div>
       <div className="rigth">
         <div className="crear">
-          {/* <h4><strong> Prepare your favorite dish</strong></h4> */}
+          <h4><strong> Prepare your favorite dish</strong></h4>
           <button onClick={e=>{handleClick(e)}} className='btn'>Refresh</button>
           <Paginado
             recipesPerPage={recipesPerPage}
@@ -57,28 +57,26 @@ export default function Home(){
             paginado = {paginado}
               />
           <div className="agus">
-            <Link className="link" to='/recipe' style= {{textDecoration:"none"}}><strong>Created recipe</strong></Link>
+            <Link className="link" to='/recipe' style= {{textDecoration:"none"}}><strong>Create recipe</strong></Link>
           </div>
         </div>
         <div className="cards">
         {
           currentRecipe?.map(e=>{
             return(
-              <Link to={'/home/'+ e.id} style= {{textDecoration:"none"}} >
+              <Link id="detail" to={`/recipe/${e.id}`} style= {{textDecoration:"none"}} >
                 <Card key={e.id} id ={e.id} title={e.title} diets={e.diets.join(', ')} image={e.image}/>
               </Link>
             )
           })
         }
         </div>
-
       </div>
       </div>
       ):(
         <Loading/>
       )
       }
-    </div>
-       
+    </div> 
     )
 }

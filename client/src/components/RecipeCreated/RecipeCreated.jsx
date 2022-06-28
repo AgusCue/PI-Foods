@@ -2,6 +2,8 @@ import React, { useState,useEffect } from "react";
 import { Link,useHistory } from "react-router-dom";
 import {postRecipe,getDiet}from '../../actions'
 import { useDispatch, useSelector} from "react-redux";
+  
+import './RecipeCreated.css'
 
 export default function RecipeCreated(){
   const dispatch = useDispatch()
@@ -117,7 +119,7 @@ export default function RecipeCreated(){
         <h1>Created your recipe</h1>
           <form onSubmit={e => handleSubmit(e)}>
             <button type="submit">CREATED RECIPE</button>
-            <div>
+            <div className="inputs" >
               <label>Title</label>
               <input onChange={handleChange} type='text' value={input.title} name='title'/>
               <label>Summary</label> 
@@ -128,12 +130,12 @@ export default function RecipeCreated(){
               <input onChange={handleChange} type='text' value={input.spoonacularScore} name='spoonacularScore'/>
               <label>Image</label> 
               <input onChange={handleChange} type='text' value={input.image} name='image'/>
-              <div>
+              <div className="creardietas">
               <div>
                 <label>Diets:</label>
-                  <div>
+                  <div className="check">
                     {diets.map((e) => (
-                      <div>
+                      <div >
                         <input
                             type="checkbox"
                             value={e.title}
