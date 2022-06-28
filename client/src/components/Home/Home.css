@@ -49,9 +49,40 @@ h4{
     display: flex;
     background-color: white;
     height: 220px;
-    border-bottom-left-radius: 10px;
+    border-bottom-left-radius: 15px;
     justify-content: space-between;
+    background-color: #a4b0be;
+    border-bottom: 5px solid white;
+    border-left: 5px solid white;
+    background-size: cover;
+
 }
+
+.paginado-refres button{
+    background-color: transparent;
+    border: none;
+    height: 150px;
+    cursor: pointer;
+}
+
+/* .btn{
+    margin-top: 5px;
+    margin-left: 20px;
+    background-color: transparent;
+    border: none;
+    font-size: 60px;
+    text-shadow: white 0.1em 0.1em 0.1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    background-image: url('../../imagen/');
+    background-size: cover;
+    width: 390px;
+    height: 500px;
+    cursor: pointer;
+} */
+
+
 
 .crear img{
     display: flex;
@@ -60,11 +91,6 @@ h4{
     justify-items: left;
 }
 
-.paginado{
-    display: flex;
-    justify-content:center;
-    background-color: white;
-}
 
 .agus{
     display: flex;
@@ -76,15 +102,24 @@ h4{
 
 .link{
     height: max-content;
-    margin-left: 40px;
+    margin-left: 25px;
     margin-top: 150px;
     font-size: larger;
     color: black;
     text-decoration: none;
     font-family: 'Josefin Sans', sans-serif;
+    text-transform: uppercase;
 }
 
-.btn{
-    height: 25px;
+.paginado-refres{
+    width: 1100px;
     display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.paginado-refres ul{
+    display: flex;
+    flex-direction: row;
+    margin-top: -180px;
 }

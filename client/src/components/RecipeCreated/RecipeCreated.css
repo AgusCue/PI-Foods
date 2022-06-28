@@ -1,26 +1,94 @@
+#root{
+    height: 100%;
+    width: 100%;
+    position:absolute;
+}
+
 .colum{
     display: flex;
     flex-direction: column;
 }
 
-.inputs{
-    display: flex;
-    flex-direction: column;
-    
+.colum h1{
+    width: max-content;
+    margin-left: 800px;
+    margin-bottom:70px;
 }
 
-.creardietas{
-    border: 1px solid black;
+.colum-home{
     display: flex;
-    height: 300px;
+    width: 100px;
+    height: 100px;
+}
+
+.inputs{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.inputs input{
+    margin-top: 15px;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid black;
+}
+
+
+
+.inputs-left{
+    display: flex ;
+    flex-direction: column;
+}
+
+.inputs-rigth{
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin-left: 100px;
+}
+
+.inputs-rigth input{
+    display: flex; 
+    margin-top: 10px; 
+    height: 20px;
+    margin-left: 30px ;
+    width: 500px;
+}
+
+.inputs-rigth button{
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    height: 25px;
+    width: 100px;
+    margin-left: 50%;
+    margin-top: 20px;
+}
+
+
+.creardietas{
+    display: flex;
+    height: max-content;
     width: max-content;
     align-items: center;
     flex-direction: column;
     justify-content: space-between;
+    text-transform: uppercase;
 }
 
 .check{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-gap: 15px;
+}
+
+.check-sub{
+    display: flex;
+    justify-content: left;
+    flex-direction: row;
+}
+
+.check-sub input{
+    margin-top: 24px;
 }

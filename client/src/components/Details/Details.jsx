@@ -4,7 +4,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {getDetail}from '../../actions'
 import { Link, useParams } from "react-router-dom";
 import Loading from "../Loading/Loading";
-import img from '../../imagen/home.png'
+import img from '../../imagen/homes.png'
 
 import './Details.css'
 
@@ -23,11 +23,11 @@ export default function Detail(){
     <div id="alldatail">
       <div className="home1">
         <Link to='/home'>
-          <img src={img} alt="alt" width='100px' height='100px'/>
+          <img src={img} alt="alt" width='300px' height='300px'/>
         </Link>
       </div>
       { 
-        myRecipe ?
+        myRecipe ? 
           <div id="todosDetail">
             <p id="detail"><strong>{myRecipe.title}</strong></p>
             <div id="portada">
@@ -56,6 +56,7 @@ export default function Detail(){
       </div>
     )
 }
+
 
 
 

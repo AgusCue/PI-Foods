@@ -2,6 +2,7 @@ import React, { useState,useEffect } from "react";
 import { Link,useHistory } from "react-router-dom";
 import {postRecipe,getDiet}from '../../actions'
 import { useDispatch, useSelector} from "react-redux";
+import img from '../../imagen/homes.png'
   
 import './RecipeCreated.css'
 
@@ -58,10 +59,6 @@ export default function RecipeCreated(){
     }
   } 
 
-
-
-
-
 //-----------Datos--------------//
   function handleChange(e){
     setInput({
@@ -69,10 +66,6 @@ export default function RecipeCreated(){
       [e.target.name]: e.target.value
     })  
   }
-
-
-
-
 
   //-----------Formulario--------------//
   function handleSubmit(e){
@@ -115,49 +108,48 @@ export default function RecipeCreated(){
   
   return (
     <div className="colum">
-      <Link to= '/home'><button>Volver</button></Link>
+      <div className="colum-home">
+      <Link to= '/home'><img src={img} alt="img" width='100px' height='100px' /></Link>
+      </div>
         <h1>Created your recipe</h1>
           <form onSubmit={e => handleSubmit(e)}>
-            <button type="submit">CREATED RECIPE</button>
             <div className="inputs" >
-              <label>Title</label>
-              <input onChange={handleChange} type='text' value={input.title} name='title'/>
-              <label>Summary</label> 
-              <input onChange={handleChange} type='text' value={input.summary} name='summary'/>   
-              <label>Health Score</label> 
-              <input onChange={handleChange} type='text' value={input.healthScore} name='healthScore'/>
-              <label>Poonacular Score</label> 
-              <input onChange={handleChange} type='text' value={input.spoonacularScore} name='spoonacularScore'/>
-              <label>Image</label> 
-              <input onChange={handleChange} type='text' value={input.image} name='image'/>
+              <div className="inputs-left">
+              <input placeholder="Title"  onChange={handleChange} type='text' value={input.title} name='title' autocomplete="off"/>
+              <input placeholder="Summary"  onChange={handleChange} type='text' value={input.summary} name='summary' autocomplete="off"/>    
+              <input placeholder="Health Score"  onChange={handleChange} type='text' value={input.healthScore} name='healthScore' autocomplete="off"/>
+              <input placeholder="Poonacular Score"  onChange={handleChange} type='text' value={input.spoonacularScore} name='spoonacularScore' autocomplete="off"/>
+              <input placeholder="Image"  onChange={handleChange} type='text' value={input.image} name='image' autocomplete="off"/>
               <div className="creardietas">
-              <div>
-                <label>Diets:</label>
-                  <div className="check">
-                    {diets.map((e) => (
-                      <div >
-                        <input
+                  <label>TIPES OF DIETS</label>
+                    <div className="check">
+                      {diets.map((e) => (
+                        <div className="check-sub">
+                          <input
                             type="checkbox"
                             value={e.title}
                             name={e.title}
                             onChange={(e) => handleCheckBox(e)}
-                        />
+                          />
                         <h5>{e.title}</h5>
                       </div>
                     ))}
                   </div>
               </div>
+              </div>
+              <div className="inputs-rigth">       
+                <label>Steps for Preparation</label>
+                  <button onClick={()=>{addInputPaso()}}>ADD STEP</button>
+                {
+                  indexPaso && input.steps.map((p, i)=>{
+                    return(
+                      <input type='text' value={indexPaso[i]} name='steps' onChange={e => handleChangePaso(e,i)} required autocomplete="off"/>
+                      )
+                    })
+                  }
+              </div>
             </div>
-            <label>Steps for Preparation</label>
-              <button onClick={()=>{addInputPaso()}}>ADD STEP</button>
-              {
-                indexPaso && input.steps.map((p, i)=>{
-                  return(
-                    <input type='text' value={indexPaso[i]} name='steps' onChange={e => handleChangePaso(e,i)} required/>
-                  )
-                })
-              }
-            </div>
+            <button type="submit">CREATED RECIPE</button>
           </form>
     </div>
   )

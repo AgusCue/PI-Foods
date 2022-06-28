@@ -8,6 +8,7 @@ import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
 import Filtrado from "../Filtrado/Filtrado";
 import Loading from "../Loading/Loading";
+import img from '../../imagen/imagen2.png'
 
 
 import './Home.css'
@@ -49,13 +50,14 @@ export default function Home(){
       </div>
       <div className="rigth">
         <div className="crear">
-          <h4><strong> Prepare your favorite dish</strong></h4>
-          <button onClick={e=>{handleClick(e)}} className='btn'>Refresh</button>
-          <Paginado
-            recipesPerPage={recipesPerPage}
-            allRecipes={allRecipes.length}
-            paginado = {paginado}
-              />
+          <div className="paginado-refres">
+            <button onClick={e=>{handleClick(e)}}><img src={img} alt="img"/></button>
+            <Paginado
+              recipesPerPage={recipesPerPage}
+              allRecipes={allRecipes.length}
+              paginado = {paginado}
+            />
+          </div>
           <div className="agus">
             <Link className="link" to='/recipe' style= {{textDecoration:"none"}}><strong>Create recipe</strong></Link>
           </div>

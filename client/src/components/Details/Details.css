@@ -34,14 +34,18 @@
 
 #portada{
     width: 1000px;
+    height: 250px;
     display: flex;
     justify-content: space-between;
     margin-right: 100px;
 }
 
 #portada img{
+    width: 300px;
+    height: 250px;
     margin-left: 100px;
     border-radius: 10px;
+    border: 1px solid black;
 }
 
 #portada-uno{

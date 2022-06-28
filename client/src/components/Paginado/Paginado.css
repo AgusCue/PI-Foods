@@ -1,27 +1,33 @@
 .paginado{
-    display: inline-block;
-    justify-content: center;
-    height: max-content;
-    margin-top: 73px;
-    margin-left: 5px;
+    align-items: center;
+    display: flex;
+    margin-top: 90px;
+    height: auto;
+    margin-bottom: 0;
 }
 
-ul{
+ul.paginado{
     display: flex;
     flex-direction: row;
+
 }
 
-li.paginado{
+.paginado li{
     color: black;
-    float: left;
-    padding: 8px 16px;
+    padding:20px;
+    width: 10px;
+    height: 10px;
+    font-weight: bold;
+    font-size: 20px;
     text-decoration: none;
-    border: 1px solid black;
+    border: 2px solid black;
+    display: flex;
     cursor: pointer;
-    
+    margin-left: 15px;
+    text-align: center;
+    user-select: none;
 }
 
 li.paginado:hover{
-    background-color: #ff7675;
+    background-color: #dff9fb;
 }
-
