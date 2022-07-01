@@ -12,13 +12,19 @@ body{
 .left{
     justify-content: center;
     display: flex;
+    align-self: flex-start;
     width: 600px;
-    flex-direction: columns;
+    flex-direction: column;
+    position: sticky;
+    top: 0;
+
 }
 
 .filtrado{
     display: flex;
-    margin-top: 140px;
+    margin-top: 150px;
+    margin-left: 20px;
+    
 }
 
 /* -----------left-------------- */

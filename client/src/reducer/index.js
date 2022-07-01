@@ -102,6 +102,17 @@ function rootReducer(state = initialState, action) {
         details: action.payload,
       };
 
+    case "CLEAN_DETAIL":
+      return {
+        ...state,
+        details: action.payload,
+      };
+
+    case "CLEAN_ALL_RECIPE":
+      return {
+        ...state,
+        allRecipe: action.payload,
+      };
     default:
       return state;
   }

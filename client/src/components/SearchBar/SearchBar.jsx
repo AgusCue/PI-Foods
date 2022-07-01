@@ -18,8 +18,11 @@ export default function SearchBar(){
 
     function handleSubmit(e){
         e.preventDefault()
+        // if(!name)return alert('tenes que escribir')
         dispatch(getNameRecipe(name.toLowerCase()))
     }
+
+    
     return(
         <div className='searchBar' >
             <input className="buscar"

@@ -50,7 +50,7 @@ export function getNameRecipe(name) {
         payload: json.data,
       });
     } catch (error) {
-      console.log(error);
+      alert("The recipe does not exist");
     }
   };
 }
@@ -74,5 +74,19 @@ export function getDetail(id) {
     } catch (error) {
       console.log(error);
     }
+  };
+}
+
+export function cleanDetail() {
+  return {
+    type: "CLEAN_DETAIL",
+    payload: [],
+  };
+}
+
+export function cleanAllrecipe() {
+  return {
+    type: "CLEAN_ALL_RECIPE",
+    payload: [],
   };
 }

@@ -7,7 +7,7 @@
 
 .searchBar{
     display: flex;
-    margin-top: -70px;
+    margin-top: -50px;
     border-radius: 30px;
     border: 2px solid black;
 }
@@ -19,7 +19,7 @@
     font-weight: bold ;
     font-size: 25px;
     border: none;
-    width: 400px;
+    width: 420px;
     height: 30px;
     display: flex;
     justify-content: center;
@@ -31,29 +31,22 @@
 
 .boton2{
     background-color: transparent;
+    margin-top: 10px;
     border: 0px;
     cursor: pointer;
+    margin-right: 10px;
+    width: 50px;
+    height: 50px;
+}
 
+.boton2:hover{
+    border-radius: 100%;
+    background-color: aliceblue;
 }
 
 .boton2 img{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     outline: none;
     border: none;
-}
-
-.filtros1{
-    width: auto;
-    height: 30px;
-}
-
-.filtros2{
-    width: auto;
-    height: 30px;
-}
-
-.filtros3{
-    width: auto;
-    height: 30px;
 }
