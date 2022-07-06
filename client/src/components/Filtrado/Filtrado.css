@@ -7,7 +7,7 @@
 
 .filtroDieta{
     user-select: none;
-    margin-top: 50px;
+    margin-top: 35px;
 }
 
 .filtroDieta button{
@@ -38,7 +38,7 @@
 
 .filtroAZ select{
     display: inline;
-    background-color: transparent;
+    background-color: #9feddb;
     font-weight: bold;
     border: 2px solid white;
     margin-right: 100px;
@@ -59,7 +59,7 @@ span{
 /* ------------filtro de HS---------------- */
 
 .filtroHS{
-    margin-top: 50px;
+    margin-top: 35px;
     width: 100%;
     height: 25px;
     display: flex;
@@ -71,7 +71,7 @@ span{
     display: inline;
     width: 150px;
     height: 30px;
-    background-color: transparent;
+    background-color: #9feddb;
     font-weight: bold;
     border: 2px solid white;
     margin-right: 100px;

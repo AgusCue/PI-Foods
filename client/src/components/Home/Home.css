@@ -43,7 +43,9 @@ body{
 .cards{
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 15px;
+    grid-gap: 30px;
+    margin-top: 15px;
+    margin-bottom: 15px;
 }
 
 h4{

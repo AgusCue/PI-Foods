@@ -17,6 +17,11 @@
     border-radius: 10px;
     background-repeat: no-repeat;
     background-size: cover;
+    margin: 0;
+    padding: 0;
+}
+.card:hover{
+    transform: scale(1.04);
 }
 
 h2{
@@ -32,7 +37,7 @@ h2{
 }
 
 h3{
-    margin-top:-20px;
+    margin-top:-30px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -45,8 +50,13 @@ h3{
     font-size: 20px;
 }
 
+/* .cardImg{
+    padding: 0;
+    margin: 0;
+} */
+
 .imagen{
-    margin-top: -20px;
+    margin-top: -30px;
     border-radius: 30px;
     width: 300px;
     height: 220px;
@@ -56,3 +66,9 @@ h3{
     object-fit:cover;
 }
 
+/* .imagen:hover{
+    transform: scale(1.1);
+    border-radius: 30px;
+    border: 3px solid black;
+    filter: brightness(110%);
+} */

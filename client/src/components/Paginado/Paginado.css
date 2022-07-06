@@ -9,10 +9,10 @@
 ul.paginado{
     display: flex;
     flex-direction: row;
-
 }
 
 .paginado li{
+    justify-content: center;
     color: black;
     padding:20px;
     width: 10px;
@@ -24,10 +24,10 @@ ul.paginado{
     display: flex;
     cursor: pointer;
     margin-left: 15px;
-    text-align: center;
     user-select: none;
 }
 
 li.paginado:hover{
     background-color: #dff9fb;
+    transform: scale(1.2);
 }

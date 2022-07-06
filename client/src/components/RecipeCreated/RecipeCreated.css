@@ -13,7 +13,7 @@
     width: max-content;
     margin-left: 650px;
     margin-bottom:60px;
-    margin-top: -40px;
+    margin-top: -80px;
     font-size: 70px;
     font-family: Arial, Helvetica, sans-serif;
 }
@@ -24,10 +24,21 @@
     height: 100px;
 }
 
+form{
+    width:1700px;
+    margin-left: 100px;
+    margin-top: -30px;
+}
+
 .inputs{
+    padding-top: 25px;
+    background-color: #f8c291;
+    border-radius: 30px;    
     display: flex;
     flex-direction: row;
     justify-content: center;
+    border: 3px solid black;
+    height: 700px;
 }
 
 .inputs input{
@@ -97,13 +108,14 @@
 }
 
 .check-sub input{
-    margin-top: 24px;
+    margin-top:5px;
     cursor: pointer;
 }
 
 
 
 .bn3637 {
+    margin-top: 10px;
     display: inline-flex;
     align-items: center;
     justify-content: center;

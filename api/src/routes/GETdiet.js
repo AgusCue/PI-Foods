@@ -24,32 +24,9 @@ const { API_KEY17 } = process.env;
 const { API_KEY18 } = process.env;
 const { API_KEY19 } = process.env;
 
-// router.get("/", async (req, res) => {
-//   const info = await axios.get(
-//     `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY14}&addRecipeInformation=true&number=100`
-//   );
-//   const diet = info.data?.results.map((e) => e.diets);
-//   // console.log(diet);
-//   let newDiet = diet.flat().concat("vegetarian", "ketogenic");
-//   const allDiet = [...new Set(newDiet)];
-//   // console.log(allDiet);
-//   for (let element in allDiet) {
-//     Diet.findOrCreate({
-//       where: { title: allDiet[element] },
-//     });
-//   }
-//   const totalDiet = await Diet.findAll();
-//   console.log(totalDiet);
-//   if (totalDiet.length === 11) {
-//     res.status(200).json(totalDiet);
-//   } else {
-//     return  ;
-//   }
-// });
-
 router.get("/", async (req, res) => {
   const info = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY14}&addRecipeInformation=true&number=100`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=100`
   );
   const diet = info.data?.results.map((e) => e.diets);
   // console.log(diet);

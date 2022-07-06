@@ -15,7 +15,7 @@ import "./Home.css";
 export default function Home() {
   const dispatch = useDispatch();
   const allRecipes = useSelector((state) => state.recipes);
-  const [, /*orden*/ setOrden] = useState("");
+  const [orden, setOrden] = useState("");
 
   const [currentPage, setCurrentPage] = useState(1);
   const [recipesPerPage] = useState(9);
@@ -36,7 +36,6 @@ export default function Home() {
     dispatch(cleanAllrecipe());
     dispatch(getRecipe());
   }
-
   return (
     <div>
       {allRecipes.length > 0 ? (

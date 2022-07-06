@@ -50,7 +50,7 @@ export function getNameRecipe(name) {
         payload: json.data,
       });
     } catch (error) {
-      alert("The recipe does not exist");
+      console.log(error);
     }
   };
 }

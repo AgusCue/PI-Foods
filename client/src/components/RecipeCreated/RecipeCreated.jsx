@@ -6,7 +6,7 @@ import img from "../../imagen/homes.png";
 
 import "./RecipeCreated.css";
 
-const validateName = /^[a-z]+$/i;
+const validateName = /^[a-zA-Z\s]*$/;
 const validateNum = /^((100(\.0{1,2})?)|(\d{1,2}(\.\d{1,2})?))$/;
 const validateUrl = /^(ftp|http|https):\/\/[^ "]+$/;
 
@@ -34,14 +34,6 @@ function validate(input) {
   }
   return errors;
 }
-
-// function validatePaso(input){
-//   let errorsPaso = {}
-
-//   if(!indexPaso[i]){
-//     errorsPaso.indexPaso = 'te falta este paso'
-//   }
-// }
 
 export default function RecipeCreated() {
   const dispatch = useDispatch();
@@ -232,6 +224,7 @@ export default function RecipeCreated() {
                   </div>
                 ))}
               </div>
+              <p>{errors.diets}</p>
             </div>
           </div>
           <div className="inputs-rigth">
