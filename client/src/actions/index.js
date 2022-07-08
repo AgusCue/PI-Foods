@@ -2,10 +2,11 @@ import axios from "axios";
 
 export function getDiet() {
   return async function (dispatch) {
-    let json = await axios.get("http://localhost:3001/diet");
-    return dispatch({
-      type: "GET_DIET",
-      payload: json.data,
+    axios.get("http://localhost:3001/diet").then((json) => {
+      return dispatch({
+        type: "GET_DIET",
+        payload: json.data,
+      });
     });
   };
 }
@@ -50,6 +51,7 @@ export function getNameRecipe(name) {
         payload: json.data,
       });
     } catch (error) {
+      alert("Not exist this recipe");
       console.log(error);
     }
   };

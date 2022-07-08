@@ -4,13 +4,12 @@ const router = Router();
 const { Diet, Recipe } = require("../db.js");
 
 const { API_KEY } = process.env;
-const { API_KEY1 } = process.env;
-const { API_KEY2 } = process.env;
-const { API_KEY3 } = process.env;
-const { API_KEY4 } = process.env;
-const { API_KEY5 } = process.env;
-const { API_KEY6 } = process.env;
-const { API_KEY7 } = process.env;
+const { API_KEY_2 } = process.env;
+const { API_KEY_3 } = process.env;
+const { API_KEY_4 } = process.env;
+const { API_KEY_5 } = process.env;
+const { API_KEY_6 } = process.env;
+const { API_KEY_7 } = process.env;
 const { API_KEY8 } = process.env;
 const { API_KEY9 } = process.env;
 const { API_KEY10 } = process.env;
@@ -23,10 +22,11 @@ const { API_KEY16 } = process.env;
 const { API_KEY17 } = process.env;
 const { API_KEY18 } = process.env;
 const { API_KEY19 } = process.env;
+const { API_KEY20 } = process.env;
 
 const getApiInfo = async () => {
   const apiKey = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=100`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
   );
   const apiInfo = await apiKey.data.results.map((e) => {
     return {
@@ -39,6 +39,7 @@ const getApiInfo = async () => {
       image: e.image,
       diets: e.diets,
       dishTypes: e.dishTypes,
+      creditsText: e.creditsText,
     };
   });
   return apiInfo;
@@ -78,7 +79,7 @@ const getAllRecipe = async () => {
 };
 
 router.get("/", async (req, res) => {
-  const name = req.query.name;
+  const { name } = req.query;
   try {
     let recipeTotal = await getAllRecipe();
     if (name) {
@@ -106,7 +107,7 @@ router.get("/:id", async (req, res) => {
   if (recipeSummary) {
     res.json(recipeSummary);
   } else {
-    res.status(404).send("esta mal");
+    res.status(404).send("Error in catch");
   }
 });
 

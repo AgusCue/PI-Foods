@@ -16,7 +16,7 @@ export default function Filtrado({ setCurrentPage, setOrden }) {
 
   useEffect(() => {
     dispatch(getDiet());
-  }, [dispatch]);
+  }, []);
 
   function handleFilterDiets(e) {
     e.preventDefault();

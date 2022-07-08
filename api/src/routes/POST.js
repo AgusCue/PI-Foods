@@ -8,7 +8,7 @@ router.post("/", async (req, res) => {
   try {
     console.log(diets);
     let recipeCreated = await Recipe.create({
-      title,
+      title: title.slice(0, 1).toUpperCase() + title.slice(1, title.length),
       summary,
       steps,
       image,

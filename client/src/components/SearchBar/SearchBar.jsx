@@ -6,18 +6,20 @@ import img from "../../imagen/cooking.png";
 
 import "./SearchBar.css";
 
-export default function SearchBar() {
+export default function SearchBar({ setCurrentPage }) {
   const dispatch = useDispatch();
-  const [name, setTitle] = useState("");
+  const [name, setName] = useState("");
 
   function handleInput(e) {
     e.preventDefault();
-    setTitle(e.target.value);
+    setName(e.target.value);
   }
 
   function handleSubmit(e) {
     e.preventDefault();
+    if (!name) return alert("Search recipe");
     dispatch(getNameRecipe(name.toLowerCase()));
+    setCurrentPage(1);
   }
 
   return (

@@ -23,10 +23,12 @@ const { API_KEY16 } = process.env;
 const { API_KEY17 } = process.env;
 const { API_KEY18 } = process.env;
 const { API_KEY19 } = process.env;
+const { API_KEY20 } = process.env;
+const { API_KEY_7 } = process.env;
 
 router.get("/", async (req, res) => {
   const info = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY3}&addRecipeInformation=true&number=100`
+    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&addRecipeInformation=true&number=100`
   );
   const diet = info.data?.results.map((e) => e.diets);
   // console.log(diet);

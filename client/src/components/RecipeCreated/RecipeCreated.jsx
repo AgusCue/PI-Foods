@@ -53,21 +53,6 @@ export default function RecipeCreated() {
   });
 
   //-----------Steps--------------//
-  function handleChangePaso(e, i) {
-    let paso2 = [];
-    setIndexPaso({
-      ...indexPaso,
-      [i]: e.target.value,
-    });
-    for (let i = 0; i < cantP - 1; i++) {
-      paso2.push(indexPaso[i]);
-    }
-    setInput({
-      ...input,
-      steps: paso2,
-    });
-  }
-
   function addInputPaso() {
     let paso = [];
     if (cantP <= 10) {
@@ -84,6 +69,20 @@ export default function RecipeCreated() {
         steps: paso,
       });
     }
+  }
+  function handleChangePaso(e, i) {
+    let paso2 = [];
+    setIndexPaso({
+      ...indexPaso,
+      [i]: e.target.value,
+    });
+    for (let i = 0; i < cantP - 1; i++) {
+      paso2.push(indexPaso[i]);
+    }
+    setInput({
+      ...input,
+      steps: paso2,
+    });
   }
 
   //-----------Datos--------------//
@@ -104,7 +103,7 @@ export default function RecipeCreated() {
   function handleSubmit(e) {
     e.preventDefault();
     dispatch(postRecipe(input));
-    if (!input.title) return alert("completa los campos");
+    if (!input.title) return alert("Complete the space");
     if (
       errors.name ||
       errors.summary ||
@@ -148,7 +147,7 @@ export default function RecipeCreated() {
 
   useEffect(() => {
     dispatch(getDiet());
-  }, [dispatch]);
+  }, []);
 
   return (
     <div className="colum">
@@ -239,14 +238,16 @@ export default function RecipeCreated() {
             {indexPaso &&
               input.steps.map((p, i) => {
                 return (
-                  <input
-                    type="text"
-                    value={indexPaso[i]}
-                    name="steps"
-                    onChange={(e) => handleChangePaso(e, i)}
-                    required
-                    autocomplete="off"
-                  />
+                  <div>
+                    <input
+                      type="text"
+                      value={indexPaso[i]}
+                      name="steps"
+                      onChange={(e) => handleChangePaso(e, i)}
+                      required
+                      autocomplete="off"
+                    />
+                  </div>
                 );
               })}
           </div>

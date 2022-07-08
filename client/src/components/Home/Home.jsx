@@ -29,7 +29,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getRecipe());
-  }, [dispatch]);
+  }, []);
 
   function handleClick(e) {
     e.preventDefault();
@@ -42,7 +42,7 @@ export default function Home() {
         <div className="background">
           <div className="left">
             <Filtrado setCurrentPage={setCurrentPage} setOrden={setOrden} />
-            <SearchBar />
+            <SearchBar setCurrentPage={setCurrentPage} />
           </div>
           <div className="rigth">
             <div className="crear">
