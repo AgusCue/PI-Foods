@@ -2,7 +2,7 @@ import axios from "axios";
 
 export function getDiet() {
   return async function (dispatch) {
-    axios.get("http://localhost:3001/diet").then((json) => {
+    axios.get("/diet").then((json) => {
       return dispatch({
         type: "GET_DIET",
         payload: json.data,
@@ -13,7 +13,7 @@ export function getDiet() {
 
 export function getRecipe() {
   return async function (dispatch) {
-    let json = await axios.get("http://localhost:3001/recipe");
+    let json = await axios.get("/recipe");
     return dispatch({
       type: "GET_RECIPE",
       payload: json.data,
@@ -45,7 +45,7 @@ export function orderByTitle(payload) {
 export function getNameRecipe(name) {
   return async function (dispatch) {
     try {
-      let json = await axios.get("http://localhost:3001/recipe?name=" + name);
+      let json = await axios.get("/recipe?name=" + name);
       return dispatch({
         type: "GET_NAME_RECIPE",
         payload: json.data,
@@ -59,7 +59,7 @@ export function getNameRecipe(name) {
 
 export function postRecipe(payload) {
   return async function (dispatch) {
-    let json2 = await axios.post("http://localhost:3001/recipes", payload);
+    let json2 = await axios.post("/recipes", payload);
     return json2;
   };
 }
@@ -67,7 +67,7 @@ export function postRecipe(payload) {
 export function getDetail(id) {
   return async function (dispatch) {
     try {
-      let json = await axios.get(`http://localhost:3001/recipe/${id}`);
+      let json = await axios.get(`/recipe/${id}`);
       console.log(json);
       return dispatch({
         type: "GET_DETAILS",
