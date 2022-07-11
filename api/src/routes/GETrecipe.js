@@ -94,7 +94,7 @@ router.get("/", async (req, res) => {
     }
   } catch (error) {
     console.log(error);
-    res.status(400).send("Error in catch");
+    res.status(400).send(error);
   }
 });
 
