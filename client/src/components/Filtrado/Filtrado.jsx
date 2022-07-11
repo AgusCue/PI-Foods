@@ -1,22 +1,17 @@
 import React from "react";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  filterRecipeByDiets,
-  orderByScore,
-  orderByTitle,
-  getDiet,
-} from "../../actions";
+import { filterRecipeByDiets, orderByScore, orderByTitle } from "../../actions";
 
 import "./Filtrado.css";
 
-export default function Filtrado({ setCurrentPage, setOrden }) {
+export default function Filtrado({ setCurrentPage, setOrden, allDiets }) {
   const dispatch = useDispatch();
-  const allDiets = useSelector((state) => state.diets);
+  // const allDiets = useSelector((state) => state.diets);
 
-  useEffect(() => {
-    dispatch(getDiet());
-  }, []);
+  // useEffect(() => {
+  //   dispatch(getDiet());
+  // }, []);
 
   function handleFilterDiets(e) {
     e.preventDefault();

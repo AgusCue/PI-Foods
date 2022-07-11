@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import SearchBar from "../SearchBar/SearchBar";
-import { getRecipe, cleanAllrecipe } from "../../actions";
+import { getRecipe, cleanAllrecipe, getDiet } from "../../actions";
 import { Link } from "react-router-dom";
 import Card from "../Card/Card";
 import Paginado from "../Paginado/Paginado";
@@ -15,6 +15,7 @@ import "./Home.css";
 export default function Home() {
   const dispatch = useDispatch();
   const allRecipes = useSelector((state) => state.recipes);
+  const allDiets = useSelector((state) => state.diets);
   const [orden, setOrden] = useState("");
 
   const [currentPage, setCurrentPage] = useState(1);
@@ -29,6 +30,7 @@ export default function Home() {
 
   useEffect(() => {
     dispatch(getRecipe());
+    dispatch(getDiet());
   }, []);
 
   function handleClick(e) {
@@ -38,10 +40,14 @@ export default function Home() {
   }
   return (
     <div>
-      {allRecipes.length > 0 ? (
+      {allRecipes.length > 0 && allDiets.length > 0 ? (
         <div className="background">
           <div className="left">
-            <Filtrado setCurrentPage={setCurrentPage} setOrden={setOrden} />
+            <Filtrado
+              setCurrentPage={setCurrentPage}
+              setOrden={setOrden}
+              allDiets={allDiets}
+            />
             <SearchBar setCurrentPage={setCurrentPage} />
           </div>
           <div className="rigth">
