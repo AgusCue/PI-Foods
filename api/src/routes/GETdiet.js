@@ -25,27 +25,32 @@ const { API_KEY19 } = process.env;
 const { API_KEY20 } = process.env;
 
 router.get("/", async (req, res) => {
-  const info = await axios.get(
-    `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_3}&addRecipeInformation=true&number=100`
-  );
-  const diet = info.data?.results.map((e) => e.diets);
-  // console.log(diet);
-  let newDiet = diet.flat().concat("vegetarian", "ketogenic");
-  const allDiet = [...new Set(newDiet)];
-  // console.log(allDiet);
-  let totalDiet = [];
-  while (totalDiet.length < 11) {
-    for (let element in allDiet) {
-      Diet.findOrCreate({
-        where: { title: allDiet[element] },
-      });
+  try {
+    const info = await axios.get(
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_3}&addRecipeInformation=true&number=100`
+    );
+
+    const diet = info.data?.results.map((e) => e.diets);
+    // console.log(diet);
+    let newDiet = diet.flat().concat("vegetarian", "ketogenic");
+    const allDiet = [...new Set(newDiet)];
+    // console.log(allDiet);
+    let totalDiet = [];
+    while (totalDiet.length < 11) {
+      for (let element in allDiet) {
+        Diet.findOrCreate({
+          where: { title: allDiet[element] },
+        });
+      }
+      totalDiet = await Diet.findAll();
     }
-    totalDiet = await Diet.findAll();
+
+    console.log(totalDiet);
+
+    res.status(200).json(totalDiet);
+  } catch (error) {
+    res.send("soy un error");
   }
-
-  console.log(totalDiet);
-
-  res.status(200).json(totalDiet);
 });
 
 module.exports = router;
