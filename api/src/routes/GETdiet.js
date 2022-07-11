@@ -27,7 +27,7 @@ const { API_KEY20 } = process.env;
 router.get("/", async (req, res) => {
   try {
     const apiKey = await axios.get(
-      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_3}&addRecipeInformation=true&number=100`
+      `https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY_3}&addRecipeInformation=true`
     );
 
     const diet = apiKey.data?.results.map((e) => e.diets);
