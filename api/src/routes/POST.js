@@ -1,32 +1,30 @@
 const { Router } = require("express");
 const router = Router();
-const { Diet, Recipe } = require("../db.js");
+const { Country, Activity } = require("../db");
 
 router.post("/", async (req, res) => {
-  const { title, summary, steps, image, healthScore, spoonacularScore, diets } =
-    req.body;
+  const { name, difficulties, duration, season, category, country } = req.body;
+  if (!name || !difficulties || !duration || !season || !category || !country) {
+    return res.status(404).send("falta campo");
+  }
   try {
-    console.log(diets);
-    let recipeCreated = await Recipe.create({
-      title: title.slice(0, 1).toUpperCase() + title.slice(1, title.length),
-      summary,
-      steps,
-      image,
-      healthScore,
-      spoonacularScore,
-    });
-    console.log(recipeCreated);
-    diets.forEach(async (e) => {
-      let dietDb = await Diet.findAll({
-        where: { title: e },
-      });
-      console.log(dietDb);
-      await recipeCreated.addDiet(dietDb);
+    let activityCreated = await Activity.create({
+      name: name.slice(0, 1).toUpperCase() + name.slice(1, name.length),
+      difficulties,
+      duration,
+      season,
+      category,
     });
 
-    res.send("fue creado");
+    country.forEach(async (e) => {
+      let activityDB = await Country.findAll({
+        where: { id: e },
+      });
+      await activityCreated.addCountry(activityDB);
+    });
+
+    return res.send("se creo");
   } catch (error) {
-    console.log(error);
     res.status(404).send({ error: "error" });
   }
 });
